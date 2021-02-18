@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="1">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="DATE"/>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="user">
+            <column name="id" valueNumeric="1"/>
+            <column name="email" value="ivanmalynovsky@gmail.com"/>
+            <column name="first_name" value="Ivan"/>
+            <column name="last_name" value="Malynovsky"/>
+            <column name="date_of_birth" value="1994-01-19"/>
+            <column name="status" value="SINGLE"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" valueNumeric="2"/>
+            <column name="email" value="km.lab6@gmail.com"/>
+            <column name="first_name" value="Ivan"/>
+            <column name="last_name" value="Malynovsky"/>
+            <column name="date_of_birth" value="1994-01-19"/>
+            <column name="status" value="IN_RELATIONS"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" valueNumeric="3"/>
+            <column name="email" value="random1@gmail.com"/>
+            <column name="first_name" value="Luka"/>
+            <column name="last_name" value="Doncic"/>
+            <column name="date_of_birth" value="1997-02-19"/>
+            <column name="status" value="SINGLE"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" valueNumeric="4"/>
+            <column name="email" value="randomemail2@gmail.com"/>
+            <column name="first_name" value="Lebron"/>
+            <column name="last_name" value="James"/>
+            <column name="date_of_birth" value="1989-11-19"/>
+            <column name="status" value="MARRIED"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
